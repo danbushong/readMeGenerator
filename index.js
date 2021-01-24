@@ -1,6 +1,4 @@
 const generateMarkdown = require("./utils/generateMarkdown.js");
-
-
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -14,27 +12,27 @@ const questions = [
     {
         type: 'input',
         name: 'fullName',
-        message: 'Enter your  name.'
+        message: 'Enter your name.'
     },
     {
         type: "input",
         message: "What is your email address?",
-        name: "userEmail",
+        name: "email",
     },
     {
         type: "input",
         message: "What is your project title?",
-        name: "projectTitle",
+        name: "title",
     },
     {
         type: "input",
         message: "What is the description of this project?",
-        name: "projectDescription",
+        name: "description",
     },
     {
         //this should be a different input
-        type: "input",
-        name: "projectLicense",
+        type: "list",
+        name: "license",
         message: "Please input an appropriate license type for this project",
         choices: [
             "MIT",
@@ -51,24 +49,22 @@ const questions = [
     {
         type: "input",
         message: "What command should be run to install dependencies?",
-        default: "`npm install`",
-        name: "projectInstall",
+        name: "installation",
     },
     {
         type: "input",
-        message: "What command should be run to start tests?",
-        default: "`npm test`",
-        name: "projectTest",
+        message: "What are the tests?",
+        name: "tests",
     },
     {
         type: "input",
         message: "What does the user need to know about using the repo?",
-        name: "projectRepoInfo",
+        name: "usage",
     },
     {
         type: "input",
         message: "Any additional information about contributing to the repo?",
-        name: "projectRepoInfoTwo",
+        name: "contributing",
     }
 
 ];
