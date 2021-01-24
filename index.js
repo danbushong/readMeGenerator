@@ -89,3 +89,13 @@ function userInputs(){
 })
 
 }
+//this will actually make the file 
+function writeToFile(file,data) {
+    fs.writeFile(file, data, function(err){
+        if (err) {
+            return console.log(err);
+        }
+        console.log("It worked!");
+    })
+}
+userInputs()
