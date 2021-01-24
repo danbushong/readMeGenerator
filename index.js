@@ -1,18 +1,26 @@
-generateMarkdown = require("./assets/js/generateMarkdown.js");
-
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 
 const inquirer = require("inquirer");
-const fs =require("fs");
+const fs = require("fs");
+const axios = require("axios");
+
+
 
 
 function userInputs(){
     inquirer
     //keep the prompt
   .prompt([{
+      
     type: "input",
     message: "What is your Github username?",
     name: "userName"
+},
+{
+    type: 'input',
+    name: 'fullName',
+    message: 'Enter your  name.'
 },
 {
     type: "input",
@@ -36,11 +44,15 @@ function userInputs(){
     message: "Please input an appropriate license type for this project",
     choices:[
         "MIT",
-        "APACHE",
-        "GPL",
-        "BSD",
-        "None"
+        "Apache2.0",
+        "GNUv3.0",    
+        
     ]
+},
+{
+    type: 'input',
+    name: 'year',
+    message: 'What is the copywrite year?'
 },
 {
     type: "input",
@@ -65,27 +77,12 @@ function userInputs(){
     name: "projectRepoInfoTwo",
 }
 
+
+
+
 ])
-.then((inquirerResponses) => {
-    getUser(inquirerResponses.userName)
-        .then((githubResponse) => {
-            
-            inquirerResponses = githubResponse.data
-            
-            let markdownReadme = generateMarkdown(inquirerResponses);
-            
-            writeToFile('README.md', markdownReadme);
-        })
-})
+
 
 }
-//this will actually make the file 
-function writeToFile(file,data) {
-    fs.writeFile(file, data, function(err){
-        if (err) {
-            return console.log(err);
-        }
-        console.log("It worked!");
-    })
-}
-userInputs()
+
+
