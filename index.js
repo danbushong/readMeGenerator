@@ -5,7 +5,17 @@ generateMarkdown = require("./assets/js/generateMarkdown.js");
 const inquirer = require("inquirer");
 const fs =require("fs");
 
-const axios = require("axios")
+//this is overkill I think 
+// const axios = require("axios"){
+//     return axios
+//         .get(
+//             `https://api.github.com/users/${userName}`
+//         )
+//         .catch(err => {
+//             console.log(`User not found`);
+//             process.exit(1);
+//         });
+// }
 
 function userInputs(){
     inquirer
@@ -65,17 +75,17 @@ function userInputs(){
     default: "MIT",
     name: "projectLicense",
 }
-
-
-
-  
-
-
-  ])
-
-
-
-
-
+])
+.then((inquirerResponses) => {
+    getUser(inquirerResponses.userName)
+        .then((githubResponse) => {
+            
+            inquirerResponses = githubResponse.data
+            
+            let markdownReadme = generateMarkdown(inquirerResponses);
+            
+            writeToFile('README.md', markdownReadme);
+        })
+})
 
 }
