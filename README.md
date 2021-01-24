@@ -1,6 +1,6 @@
-# readmeMaker
+# readmeGenerator
   ## Description
-  make a readme
+  It makes a readme 
   ## Table of Contents
   * [Installation](#Installation)
   * [Usage](#Usage)
@@ -9,7 +9,7 @@
   * [License](#License)
   * [Questions](#Questions)
   ## Installation
-  install
+  sfsdfsdf
   ## Usage
   enjoy it
   ## Contributing
@@ -34,4 +34,4 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   ## Questions
   Email: bushongdan@gmail.com<br>
-  Git Hub: https://www.github.com/undefined
+  Git Hub: https://www.github.com/danbushong
