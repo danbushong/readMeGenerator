@@ -5,17 +5,6 @@ generateMarkdown = require("./assets/js/generateMarkdown.js");
 const inquirer = require("inquirer");
 const fs =require("fs");
 
-//this is overkill I think 
-// const axios = require("axios"){
-//     return axios
-//         .get(
-//             `https://api.github.com/users/${userName}`
-//         )
-//         .catch(err => {
-//             console.log(`User not found`);
-//             process.exit(1);
-//         });
-// }
 
 function userInputs(){
     inquirer
@@ -41,10 +30,11 @@ function userInputs(){
     name: "projectDescription",
 },
 {
+    //this should be a different input
     type: "input",
-    message: "What is the path for this project's screenshot?",
-    default: "assets/img/screenshot.gif",
-    name: "projectImgSRC",
+    message: "Please input an appropriate license type for this project",
+    default: "MIT",
+    name: "projectLicense",
 },
 {
     type: "input",
@@ -54,27 +44,21 @@ function userInputs(){
 },
 {
     type: "input",
-    message: "What command should be run to run the program?",
-    default: "`node index.js`",
-    name: "projectRun",
-},
-{
-    type: "input",
     message: "What command should be run to start tests?",
     default: "`npm test`",
     name: "projectTest",
 },
 {
     type: "input",
-    message: "Any additional information about the project?",
-    name: "projectInfo",
+    message: "What does the user need to know about using the repo?",
+    name: "projectRepoInfo",
 },
 {
     type: "input",
-    message: "Please input an appropriate license type for this project",
-    default: "MIT",
-    name: "projectLicense",
+    message: "Any additional information about contributing to the repo?",
+    name: "projectRepoInfoTwo",
 }
+
 ])
 .then((inquirerResponses) => {
     getUser(inquirerResponses.userName)
