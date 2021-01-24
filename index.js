@@ -32,9 +32,15 @@ function userInputs(){
 {
     //this should be a different input
     type: "input",
-    message: "Please input an appropriate license type for this project",
-    default: "MIT",
     name: "projectLicense",
+    message: "Please input an appropriate license type for this project",
+    choices:[
+        "MIT",
+        "APACHE",
+        "GPL",
+        "BSD",
+        "None"
+    ]
 },
 {
     type: "input",
